@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import Register from './components/Register';
+import BirthdayList from "./components/BirthdayList";
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
-import BirthdayList from "./components/BirthdayList";
+import Register from './components/Register';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
   return (

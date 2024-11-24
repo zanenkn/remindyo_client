@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../context/AuthContext';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const BirthdayList = () => {
   const [birthdays, setBirthdays] = useState([]);

@@ -15,9 +15,7 @@ const BirthdayList = () => {
 
   const fetchBirthdays = async () => {
     try {
-      const response = await axios.get('/api/birthdays', {
-        withCredentials: true
-      });
+      const response = await axios.get('/api/birthdays');
       setBirthdays(response.data);
     } catch (error) {
       console.error('Error fetching birthdays:', error);
@@ -30,9 +28,7 @@ const BirthdayList = () => {
 
   const addItem = async () => {
     try {
-      const response = await axios.post('/api/birthdays', newBirthday, {
-        withCredentials: true
-      });
+      const response = await axios.post('/api/birthdays', newBirthday);
       setBirthdays([...birthdays, response.data]);
       setNewBirthday({ name: '', date: '' });
     } catch (error) {

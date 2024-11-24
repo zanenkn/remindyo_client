@@ -1,8 +1,20 @@
-# React + Vite
+# Remindyo 2.0
+Never forget a birthday again!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Original Remindyo](https://github.com/ViktorSvenssonN/Viktor-Joel-Nina-FP-Frontend)
 
-Currently, two official plugins are available:
+## Run it locally
+Install depencencies:
+```
+npm install
+```
+Run it:
+```
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deployed
+This state of art app is available [deployed](https://remindyo-client.onrender.com/)!
+
+## Backend
+Backend runs on Node Express and MongoDB: [GitHub repo](https://github.com/zanenkn/remindyo_api)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const Register = () => {
     try {
       await axios.post('/api/auth/register', { email, password });
       navigate('/login')
-    } catch (err) {
+    } catch {
       setMessage('Failed to register');
     }
   };

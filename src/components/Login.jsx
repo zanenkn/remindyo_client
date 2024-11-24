@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
@@ -15,7 +15,7 @@ const Login = () => {
     try {
       await login(email, password);
       navigate('/')
-    } catch (err) {
+    } catch {
       setMessage('Failed to login');
     }
   };

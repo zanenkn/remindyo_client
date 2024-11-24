@@ -1,34 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const BirthdayList = () => {
   const [birthdays, setBirthdays] = useState([]);
   const [newBirthday, setNewBirthday] = useState({ name: '', date: '' });
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get('/api/birthdays')
-      .then((response) => setBirthdays(response.data))
-      .catch((error) => console.error('Error fetching birthdays:', error));
+    fetchBirthdays();
   }, []);
 
-  const addItem = () => {
-    axios
-      .post('/api/birthdays', newBirthday)
-      .then((response) => {
-        setBirthdays([...birthdays, response.data]);
-        setNewBirthday({ name: '', date: '' });
-      })
-      .catch((error) => console.error('Error adding item:', error));
+  const fetchBirthdays = async () => {
+    try {
+      const response = await axios.get('/api/birthdays', {
+        withCredentials: true
+      });
+      setBirthdays(response.data);
+    } catch (error) {
+      console.error('Error fetching birthdays:', error);
+      if (error.response?.status === 401) {
+        await logout();
+        navigate('/login');
+      }
+    }
+  };
+
+  const addItem = async () => {
+    try {
+      const response = await axios.post('/api/birthdays', newBirthday, {
+        withCredentials: true
+      });
+      setBirthdays([...birthdays, response.data]);
+      setNewBirthday({ name: '', date: '' });
+    } catch (error) {
+      console.error('Error adding item:', error);
+      if (error.response?.status === 401) {
+        await logout();
+        navigate('/login');
+      }
+    }
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
   };
 
   return (
     <div>
-      <h1>Birthdays</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>Birthdays</h1>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
       <ul>
         {birthdays.map((item) => (
           <li key={item._id}>
-            {item.name}: {item.date}
+            {item.name}: {new Date(item.date).toLocaleDateString()}
           </li>
         ))}
       </ul>
@@ -40,7 +70,6 @@ const BirthdayList = () => {
       />
       <input
         type="date"
-        placeholder="Select a date"
         value={newBirthday.date}
         onChange={(e) => setNewBirthday({ ...newBirthday, date: e.target.value })}
       />

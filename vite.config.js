@@ -8,6 +8,7 @@ export default defineConfig({
       '@components': '/src/components',
       '@context': '/src/context',
       '@ui': '/src/ui',
+      '@theme': '/src/theme',
     },
   },
 });

@@ -1,7 +1,8 @@
 'use client'
 
-import { Avatar as ChakraAvatar, Group } from '@chakra-ui/react'
 import * as React from 'react'
+
+import { Avatar as ChakraAvatar, Group } from '@chakra-ui/react'
 
 export const Avatar = React.forwardRef(function Avatar(props, ref) {
   const { name, src, srcSet, loading, icon, fallback, children, ...rest } =

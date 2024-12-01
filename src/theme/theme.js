@@ -1,7 +1,8 @@
 import { createSystem, defineConfig, defaultConfig } from '@chakra-ui/react';
+
 import { buttonRecipe } from './recipes/button.recipe';
-import { linkRecipe } from './recipes/link.recipe';
 import { containerRecipe } from './recipes/container.recipe';
+import { linkRecipe } from './recipes/link.recipe';
 
 const customConfig = defineConfig({
   theme: {

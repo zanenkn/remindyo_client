@@ -41,12 +41,42 @@ export default [
         {
           groups: [
             ['builtin', 'external'],
-            ['internal', 'parent', 'sibling', 'index'],
+            ['internal'],
+            ['parent', 'sibling', 'index'],
           ],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'builtin',
+              position: 'before',
+            },
+            {
+              pattern: '@chakra-ui/react',
+              group: 'external',
+            },
+            {
+              pattern: '@context/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@components/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@ui/**',
+              group: 'internal',
+            },
+            {
+              pattern: '@theme/**',
+              group: 'internal',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
             order: 'asc',
             caseInsensitive: true,
           },
+          'newlines-between': 'always',
         },
       ],
     },

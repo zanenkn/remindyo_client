@@ -1,5 +1,6 @@
-import { Group, InputElement } from '@chakra-ui/react'
 import * as React from 'react'
+
+import { Group, InputElement } from '@chakra-ui/react'
 
 export const InputGroup = React.forwardRef(function InputGroup(props, ref) {
   const {

@@ -1,6 +1,8 @@
-import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
-import { CloseButton } from './close-button'
 import * as React from 'react'
+
+import { Drawer as ChakraDrawer, Portal } from '@chakra-ui/react'
+
+import { CloseButton } from './close-button'
 
 export const DrawerContent = React.forwardRef(
   function DrawerContent(props, ref) {

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import BirthdayList from '@components/BirthdayList';
 import Login from '@components/Login';
 import ProtectedRoute from '@components/ProtectedRoute';

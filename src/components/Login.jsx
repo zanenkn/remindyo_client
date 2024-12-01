@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 
-import { Box, Button, Fieldset, Input, AbsoluteCenter, Heading, Link, Container } from "@chakra-ui/react"
+import { Box, Button, Fieldset, Input, Heading, Link, Container } from "@chakra-ui/react"
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 import { AuthContext } from '@context/AuthContext';
@@ -24,46 +24,44 @@ const Login = () => {
   };
 
   return (
-    <Box bg="primary.600" w='100vw' h='100vh'>
-      <AbsoluteCenter>
-        <Box shadow="md" w="md" p="10" bg="white">
-          <Container>
-            <Container mb={4}>
-              <Fieldset.Root size="md" maxW="md">
-                <Heading textAlign={'center'}>
-                  Login
-                </Heading>
-                <Fieldset.Content>
-                  <Field label="Email">
-                    <Input
-                      name="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Field>
+    <Box bg="primary.600" w='100vw' h='100vh' display='flex' flexDirection='column' alignItems='center' justifyContent='center' p={[5, 0]}>
+      <Box shadow="md" p={[5, 10]} w={['100%', 'md']} bg="white">
+        <Container>
+          <Container mb={4}>
+            <Fieldset.Root>
+              <Heading textAlign={'center'}>
+                Login
+              </Heading>
+              <Fieldset.Content>
+                <Field label="Email">
+                  <Input
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Field>
 
-                  <Field label="Password">
-                    <Input
-                      name="password"
-                      value={password}
-                      type="password"
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Field>
-                </Fieldset.Content>
+                <Field label="Password">
+                  <Input
+                    name="password"
+                    value={password}
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Field>
+              </Fieldset.Content>
 
-                <Button type="submit" alignSelf="center" onClick={handleSubmit}>
-                  Login
-                </Button>
-              </Fieldset.Root>
-            </Container>
-            <Container display='flex' justifyContent='center'>
-              <Link as={RouterLink} to="/register" textAlign="center">No account? Click here to register!</Link>
-            </Container>
+              <Button type="submit" alignSelf="center" onClick={handleSubmit}>
+                Login
+              </Button>
+            </Fieldset.Root>
           </Container>
-        </Box>
-      </AbsoluteCenter>
+          <Container display='flex' justifyContent='center'>
+            <Link as={RouterLink} to="/register" textAlign="center">No account? Click here to register!</Link>
+          </Container>
+        </Container>
+      </Box>
     </Box>
   );
 };

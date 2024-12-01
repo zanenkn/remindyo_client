@@ -1,10 +1,14 @@
 import { createSystem, defineConfig, defaultConfig } from '@chakra-ui/react';
 import { buttonRecipe } from './recipes/button.recipe';
+import { linkRecipe } from './recipes/link.recipe';
+import { containerRecipe } from './recipes/container.recipe';
 
 const customConfig = defineConfig({
   theme: {
     recipes: {
       button: buttonRecipe,
+      link: linkRecipe,
+      container: containerRecipe,
     },
     tokens: {
       colors: {

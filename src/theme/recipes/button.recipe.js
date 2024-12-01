@@ -5,7 +5,7 @@ export const buttonRecipe = defineRecipe({
     display: 'flex',
   },
   variants: {
-    visual: {
+    variant: {
       solid: {
         bg: 'primary.600',
         color: 'white',
@@ -25,7 +25,6 @@ export const buttonRecipe = defineRecipe({
     },
   },
   defaultVariants: {
-    visual: 'solid',
-    size: 'lg',
+    variant: 'solid',
   },
 });

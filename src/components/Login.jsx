@@ -5,6 +5,7 @@ import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 import { AuthContext } from '@context/AuthContext';
 import { Field } from "@ui/field"
+import { toaster } from '@ui/toaster';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -18,8 +19,11 @@ const Login = () => {
     try {
       await login(email, password);
       navigate('/')
-    } catch {
-      // TODO: add toast
+    } catch (error) {
+      toaster.create({
+        title: `Could not log in: ${error.response.data.message}`,
+        type: 'error',
+      })
     }
   };
 
@@ -62,6 +66,7 @@ const Login = () => {
           </Container>
         </Container>
       </Box>
+
     </Box>
   );
 };

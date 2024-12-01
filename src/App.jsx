@@ -5,6 +5,7 @@ import Login from '@components/Login';
 import ProtectedRoute from '@components/ProtectedRoute';
 import Register from '@components/Register';
 import { AuthProvider } from '@context/AuthContext';
+import { Toaster } from '@ui/toaster';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           />
         </Routes>
       </Router>
+      <Toaster />
     </AuthProvider>
   );
 };

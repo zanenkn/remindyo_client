@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { Field } from "@ui/field"
 import { PasswordInput } from '@ui/password-input';
+import { toaster } from '@ui/toaster';
 
 const Register = () => {
   const navigate = useNavigate()
@@ -16,10 +17,16 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post('/api/auth/register', { email, password });
+      toaster.create({
+        title: "Successful registration: you can log in now!",
+        type: 'success',
+      })
       navigate('/login')
-      // TODO: set snackbar
-    } catch {
-      // TODO: set snackbar
+    } catch (error) {
+      toaster.create({
+        title: `Could not register: ${error.response.data.message}`,
+        type: 'error',
+      })
     }
   };
 
